@@ -1,4 +1,5 @@
 # Create Base Docker Images by Using Febootstrap.
+`Febootstrap` helps create a base docker image on Kylin7 which is MIPS architecture. The size is 245 MB with installing yum and bash in this image. The Docker Hub link: https://hub.docker.com/r/inspuradmin/baseimage-mips
 ## 1. Introduction of Febootstrap
   `Febootstrap` is a tool that allows us to make native OS base images, such as Centos, Ubuntu and other operating systems. It can also specify the installation of specific software into the image, which makes it easier for us to understand and control the composition of the base image. Finally, the base image is expanded into an application image to finally deploy the service.
 
@@ -15,17 +16,17 @@ fakeroot-1.12.2-22.2.ns6.0.1.mips64el.rpm
 ```
 ## 3. Operations of Febootstrap
 ```
-febootstrap -i bash -i wget neokylin7 neokylin-base-1.0 http://download.cs2c.com.cn/neokylin/server/releases/7.0/ls_64
+febootstrap -i bash -i wget neokylin7 neokylin-base-1.1 http://download.cs2c.com.cn/neokylin/server/releases/7.0/ls_64
 ```
 parameter description:
 * -i `Package that needs to be installed, for example, install bash, wget here`
 * neokylin7      `Operating system version`
-* neokylin-base-1.0  `Image directory, for example, generate neokylin-base-1.0 directory in the current directory here`
+* neokylin-base-1.1  `Image directory, for example, generate neokylin-base-1.1 directory in the current directory here`
 * http://download.cs2c.com.cn/neokylin/server/releases/7.0/ls_64    `Mirror OS source address`
 
 Download the directory after installation (equivalent to a complete local system directory of Kylin7)
 ```
-[root@10 neokylin-base-1.0]# ll
+[root@10 neokylin-base-1.1]# ll
 总用量 60
 lrwxrwxrwx  1 root root    7 7月  30 17:05 bin -> usr/bin
 dr-xr-xr-x  2 root root 4096 4月  16 2018 boot
@@ -50,10 +51,10 @@ drwxr-xr-x 18 root root 4096 7月  30 17:06 var
 ```
 Package and import the current directory into the image
 ```
-tar -c .|docker import - fanzhihai/neokylin-base:1.0
+tar -c .|docker import - fanzhihai/neokylin-base:1.1
 
 [root@10 neokylin-base-1.0]# docker images | grep neokylin-base
-fanzhihai/neokylin-base                                1.0                  a07b57ac80ea        3 days ago          525 MB
+fanzhihai/neokylin-base        1.1        a07b57ac80ea        3 days ago          245 MB
 ```
 
 At this point, we use Febootstrap to create and extend the image of the specified software based on the Kylin7 OS system. We can run the image and go to the container to view the system version and whether the specified software is installed.
