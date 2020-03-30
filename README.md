@@ -1,5 +1,5 @@
 # Create Base Docker Images by Using Febootstrap.
-`Febootstrap` helps create a base docker image on Kylin7 which is MIPS architecture. The size is 139 MB with installing yum and bash in this image(inspursoft/baseimage-mips:1.0). The minimal is 81.6 MB with installing bash only(inspursoft/baseimage-mips:light). The Docker Hub link: https://hub.docker.com/r/inspursoft/baseimage-mips
+`Febootstrap` helps create a base docker image on Kylin7 which is MIPS architecture. The size is 115 MB with installing yum and bash in this image(inspursoft/baseimage-mips:1.0). The minimal is 61.1 MB with installing bash only(inspursoft/baseimage-mips:light). The Docker Hub link: https://hub.docker.com/r/inspursoft/baseimage-mips
 ## 1. Introduction of Febootstrap
   `Febootstrap` is a tool that allows us to make native OS base images, such as Centos, Ubuntu and other operating systems. It can also specify the installation of specific software into the image, which makes it easier for us to understand and control the composition of the base image. Finally, the base image is expanded into an application image to finally deploy the service.
 
